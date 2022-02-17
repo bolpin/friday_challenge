@@ -78,6 +78,7 @@ This site is an internal tool which helps us find which `Players` should get whi
 
 ### Notes:
   * For the views feel free to use any web development framework you are familiar with and feel comfortable using
+  * The existing codebase has nothing added to it beyond initial project setup
   * If the project is taking too long then you may leave something out. Be sure to let us know so we can adjust the requirements
   
 ## Project Submission:
