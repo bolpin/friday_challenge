@@ -82,4 +82,4 @@ This site is an internal tool which helps us find which `Players` should get whi
   * If the project is taking too long then you may leave something out. Be sure to let us know so we can adjust the requirements
   
 ## Project Submission:
-Please provide us with a github repository fork of this project or a pull request
+Please provide us with a github fork of this project
