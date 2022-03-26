@@ -2,7 +2,7 @@
 
 baz:
   id: 1
-  first_name: Phoenix
+  first_name: Baz
   last_name: MyString
   birthdate: 2000-03-25
   gender_id: 3

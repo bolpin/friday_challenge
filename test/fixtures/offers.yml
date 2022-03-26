@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Offer1
+  header: $5 gift card
+  description: MyText
+  points: 1000
+  payout_cents: 5.00
+
+two:
+  title: offer2
+  header: Big Money!
+  description: MyText
+  points: 20
+  payout_cents: 100.00

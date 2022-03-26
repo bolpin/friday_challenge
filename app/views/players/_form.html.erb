@@ -33,7 +33,7 @@
   </div>
 
   <%#= render partial: 'device_form', locals: { player_form: form } %>
-  <h2>Device</h2>
+  <h3>Device</h3>
   <%= form.fields_for @player.device do |device_form| %>
     <div>
       <%= device_form.label :model, style: "display: block" %>
