@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_25_183433) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_26_162523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,41 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_183433) do
     t.string "locale"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "player_id"
+    t.bigint "operating_system_id"
+    t.bigint "locale_id"
+    t.index ["locale_id"], name: "index_devices_on_locale_id"
+    t.index ["operating_system_id"], name: "index_devices_on_operating_system_id"
+    t.index ["player_id"], name: "index_devices_on_player_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locales", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "operating_systems", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthdate"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "gender_id"
+    t.index ["gender_id"], name: "index_players_on_gender_id"
   end
 
 end

@@ -2,10 +2,16 @@ require "test_helper"
 
 class DeviceTest < ActiveSupport::TestCase
   def setup
+    @player = Player.new(first_name: "Birgitta",
+                         last_name: "MyString",
+                         birthdate: 60.years.ago.to_date,
+                         gender: "female")
+
     @device = Device.new(model: "tablet",
                          os: "android",
                          version: "0.0.10",
-                         locale: "en_CA")
+                         locale: "en_CA",
+                         player: @player)
   end
 
   test "valid device attributes" do

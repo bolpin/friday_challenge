@@ -1,7 +1,7 @@
 require 'rubygems/version'
 
 class Device < ApplicationRecord
-
+  belongs_to :player
   validates :model, presence: true
 
   validates :os,
@@ -28,7 +28,7 @@ class Device < ApplicationRecord
     self.os_major_version,self.os_minor_version,self.os_patch_version,*rest =
       version.segments
   rescue
-    # TODO: validation error msg
+    # TODO: better validation error msg
     self.os_major_version = self.os_minor_version = self.os_patch_version = nil
   end
 
