@@ -2,16 +2,15 @@ require "test_helper"
 
 class DeviceTest < ActiveSupport::TestCase
   def setup
-    @player = Player.new(first_name: "Birgitta",
-                         last_name: "MyString",
-                         birthdate: 60.years.ago.to_date,
-                         gender: "female")
+    valid_attributes = {
+      model: "tablet",
+      os_version: '1.0.0',
+      operating_system: operating_systems(:android),
+      locale: locales(:en_US),
+      player: players(:reba)
+    }
 
-    @device = Device.new(model: "tablet",
-                         os: "android",
-                         version: "0.0.10",
-                         locale: "en_CA",
-                         player: @player)
+    @device = Device.new(valid_attributes)
   end
 
   test "valid device attributes" do
@@ -19,21 +18,14 @@ class DeviceTest < ActiveSupport::TestCase
   end
 
   test "model is present" do
-    @device.model = "  "
+    @device.model = "    "
     refute @device.valid?
-  end
-
-  test "locale should be saved as lowercase" do
-    mixed_case_locale = "eN_cA"
-    @device.locale = mixed_case_locale
-    @device.save
-    assert_equal @device.reload.locale, mixed_case_locale.downcase
   end
 
   test "valid version formats" do
     valids = ["1.0.0", "444.444.22222222", "2.3.4-beta123abc"]
     for vers in valids do
-      @device.version = vers
+      @device.os_version = vers
       assert @device.valid?, "#{vers} should be valid"
     end
   end
@@ -41,7 +33,7 @@ class DeviceTest < ActiveSupport::TestCase
   test "invalid version formats" do
     invalids = [".0.0", "a.1.0", "1.0.0-a+b"]
     for vers in invalids do
-      @device.version = vers
+      @device.os_version = vers
       refute @device.valid?, "#{vers} should not be valid"
     end
   end

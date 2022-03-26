@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  code: MyString
+en_US:
+  id: 1
+  code: en_US
 
-two:
-  code: MyString
+es_MX:
+  id: 2
+  code: es_MX

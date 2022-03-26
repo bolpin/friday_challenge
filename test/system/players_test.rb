@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class PlayersTest < ApplicationSystemTestCase
   setup do
-    @player = players(:one)
+    @player = players(:reba)
   end
 
   test "visiting the index" do
@@ -16,7 +16,7 @@ class PlayersTest < ApplicationSystemTestCase
 
     fill_in "Birthdate", with: @player.birthdate
     fill_in "First name", with: @player.first_name
-    fill_in "Gender", with: @player.gender
+    fill_in "player[gender_id]", with: @player.gender_id
     fill_in "Last name", with: @player.last_name
     click_on "Create Player"
 
@@ -30,7 +30,7 @@ class PlayersTest < ApplicationSystemTestCase
 
     fill_in "Birthdate", with: @player.birthdate
     fill_in "First name", with: @player.first_name
-    fill_in "Gender", with: @player.gender
+    fill_in "player[gender_id]", with: @player.gender_id
     fill_in "Last name", with: @player.last_name
     click_on "Update Player"
 

@@ -28,8 +28,8 @@
   </div>
 
   <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= form.text_field :gender %>
+    <%= form.label :gender_id, style: "display: block" %>
+    <%= form.text_field :gender_id %>
   </div>
 
   <%#= render partial: 'device_form', locals: { player_form: form } %>
@@ -42,17 +42,17 @@
 
     <div>
       <%= device_form.label "Operating System", style: "display: block" %>
-      <%= device_form.text_field :os %>
+      <%= device_form.text_field :operating_system_id %>
     </div>
 
     <div>
       <%= device_form.label "Operating System Version", style: "display: block" %>
-      <%= device_form.text_field :version %>
+      <%= device_form.text_field :os_version %>
     </div>
 
     <div>
       <%= device_form.label :locale, style: "display: block" %>
-      <%= device_form.text_field :locale %>
+      <%= device_form.text_field :locale_id %>
     </div>
   <% end %>
 

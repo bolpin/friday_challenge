@@ -25,7 +25,6 @@ class PlayersController < ApplicationController
   # POST /players or /players.json
   def create
     @player = Player.new(player_params)
-    # require 'pry';binding.pry
 
     respond_to do |format|
       if @player.save
@@ -70,10 +69,10 @@ class PlayersController < ApplicationController
       params.require(:player).permit(:first_name,
                                      :last_name,
                                      :birthdate,
-                                     :gender,
+                                     :gender_id,
                                      device_attributes: [:model,
-                                                         :os,
-                                                         :version,
-                                                         :locale])
+                                                         :operating_system_id,
+                                                         :os_version,
+                                                         :locale_id])
     end
 end

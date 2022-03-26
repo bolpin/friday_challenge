@@ -1,22 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+baz:
   id: 1
   first_name: Phoenix
   last_name: MyString
   birthdate: 2000-03-25
-  gender: non-binary
+  gender_id: 3
 
-two:
+bobby:
   id: 2
   first_name: Bobby
   last_name: MyString
   birthdate: 2003-03-25
-  gender: male
+  gender_id: 2
 
-three:
+reba:
   id: 3
   first_name: Reba
   last_name: MyString
   birthdate: 2019-03-25
-  gender: female
+  gender_id: 1

@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+android:
+  id: 1
+  name: android
 
-two:
-  name: MyString
+ios:
+  id: 2
+  name: ios
