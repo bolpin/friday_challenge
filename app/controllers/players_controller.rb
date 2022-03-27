@@ -13,17 +13,15 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-    # necessary to initialize the nested form fields:
-    @player.build_device
   end
 
   # GET /players/1/edit
   def edit
-    @player.build_device unless @player.device
   end
 
   # POST /players or /players.json
   def create
+
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -39,6 +37,7 @@ class PlayersController < ApplicationController
 
   # PATCH/PUT /players/1 or /players/1.json
   def update
+
     respond_to do |format|
       if @player.update(player_params)
         format.html { redirect_to player_url(@player), notice: "Player was successfully updated." }
@@ -66,13 +65,10 @@ class PlayersController < ApplicationController
     end
 
     def player_params
-      params.require(:player).permit(:first_name,
-                                     :last_name,
-                                     :birthdate,
-                                     :gender_id,
-                                     device_attributes: [:model,
-                                                         :operating_system_id,
-                                                         :os_version,
-                                                         :locale_id])
+      params.require(:player).permit(
+        :first_name, :last_name, :birthdate, :gender_id,
+        device_attributes: [ :model, :operating_system_id, :os_version, :locale_id ]
+      )
     end
+
 end
