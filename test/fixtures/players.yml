@@ -11,12 +11,12 @@ bobby:
   id: 2
   first_name: Bobby
   last_name: MyString
-  birthdate: 2003-03-25
+  birthdate: 1970-03-25
   gender_id: 2
 
 reba:
   id: 3
   first_name: Reba
   last_name: MyString
-  birthdate: 2019-03-25
+  birthdate: 1965-03-25
   gender_id: 1

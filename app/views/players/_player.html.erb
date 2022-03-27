@@ -1,12 +1,7 @@
 <div id="<%= dom_id player %>">
   <p>
-    <strong>First name:</strong>
-    <%= player.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= player.last_name %>
+    <strong>Name:</strong>
+    <%= "#{player.first_name} #{player.last_name}" %>
   </p>
 
   <p>
@@ -18,5 +13,13 @@
     <strong>Gender:</strong>
     <%= player.gender ? player.gender.name : "Unknown" %>
   </p>
+
+  <% if player.device %>
+  <p class='device_attributes'>
+    <i>
+      <%= "#{player.device.model} | #{player.device.operating_system.name} (#{player.device.os_version}) | #{player.device.locale.code}"%>
+    </i>
+  </p>
+  <% end %>
 
 </div>
