@@ -13,25 +13,28 @@ class PlayerTest < ActiveSupport::TestCase
     @player = Player.new(valid_attributes)
   end
 
-  test "valid player attributes" do
-    assert @player.valid?
-  end
-
-  test "last name is present" do
-    @player.last_name = "    "
-    refute @player.valid?
-  end
-
   test "is old enough on 14th birthday" do
     b_day = 14.years.ago.to_date
     @player.birthdate = b_day
+
     assert @player.valid?, "Birthdate on #{b_day} means player is old enough"
   end
 
   test "is not old enough the day before 14th birthday" do
     b_day = 14.years.ago.to_date.tomorrow
     @player.birthdate = b_day
+
     refute @player.valid?, "Birthdate on #{b_day} means player is not old enough"
+  end
+
+  test "valid player attributes" do
+    assert @player.valid?
+  end
+
+  test "last name is present" do
+    @player.last_name = "    "
+
+    refute @player.valid?
   end
 
 end
