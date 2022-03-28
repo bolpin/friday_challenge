@@ -17,8 +17,18 @@ class DeviceTest < ActiveSupport::TestCase
     assert @device.valid?
   end
 
-  test "model is present" do
-    @device.model = "    "
+  test "locale is present" do
+    @device.locale = nil
+    refute @device.valid?
+  end
+
+  test "player is present" do
+    @device.player = nil
+    refute @device.valid?
+  end
+
+  test "operating system is present" do
+    @device.operating_system = nil
     refute @device.valid?
   end
 

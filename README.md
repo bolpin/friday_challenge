@@ -1,4 +1,24 @@
-# README
+# Challenge Project
+
+## Setup
+
+```
+bundle install
+rails db:prepare
+```
+## Running Tests
+```
+rails test
+- or -
+bundle exec guard
+```
+## running server locally
+```
+bundle install
+```
+
+
+
 
 In this project you'll be using Ruby on Rails with Postgres to create a simple web UI to display data from a database.
 

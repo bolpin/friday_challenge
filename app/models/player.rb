@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
+
   has_one :device, dependent: :destroy
   belongs_to :gender, optional: true
 
@@ -7,8 +8,9 @@ class Player < ApplicationRecord
   validates :birthdate, presence: true
 
   accepts_nested_attributes_for :device,
-    :allow_destroy => true,
-    :reject_if     => :all_blank
+    allow_destroy: true,
+    # update_only: true,
+    reject_if: proc { |attributes| false }
 
   validate :minimum_fourteen_years_old
 
@@ -28,4 +30,7 @@ class Player < ApplicationRecord
     (max_age.years.ago.yesterday.to_date..min_age.years.ago.to_date)
   end
 
+  def age
+    ((Time.zone.now - birthdate.to_time) / 1.year.seconds).floor
+  end
 end

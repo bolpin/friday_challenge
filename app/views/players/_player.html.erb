@@ -2,14 +2,10 @@
   <p>
     <strong>Name:</strong>
     <%= "#{player.first_name} #{player.last_name}" %>
-  </p>
-
-  <p>
+  <br/>
     <strong>Birthdate:</strong>
-    <%= player.birthdate %>
-  </p>
-
-  <p>
+    <%= player.birthdate %> (<%= player.age %> years old)
+  <br/>
     <strong>Gender:</strong>
     <%= player.gender ? player.gender.name : "Unknown" %>
   </p>

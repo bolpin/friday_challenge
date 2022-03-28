@@ -1,7 +1,6 @@
 require 'rubygems/version'
 
 class Device < ApplicationRecord
-  validates :model, presence: true
 
   belongs_to :player
   belongs_to :operating_system
@@ -18,13 +17,12 @@ class Device < ApplicationRecord
     numericality: { only_integer: true }
 
   def os_version
-    [os_major_version, os_minor_version, os_patch_version].join('.')
+    [os_major_version, os_minor_version, os_patch_version].compact.join('.')
   end
 
-  # converts '5.0' => '5.0.0' and stores each of the three
+  # converts '5' => '5.0.0' and stores each of the three
   # segments in an integer column, for sorting in the db
   def os_version=(version_str)
-    # ignore pre-release part, if present (unlikely)
     segments = Gem::Version.new(version_str).release.segments
     while segments.length < 3
       segments.push 0
