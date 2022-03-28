@@ -36,9 +36,9 @@
                                  :selected => player.gender_id
                                }, { class: 'form-control' }) %>
   </div>
-
+  <!--
   <h3>Device</h3>
-  <%= form.fields_for :device, Device.new do |subform| %>
+  <%= form.fields_for :device do |subform| %>
     <% if subform.object.persisted? %>
       <%= subform.check_box :_destroy %>
       <%= subform.label :_destroy, "Delete this device" %>
@@ -55,8 +55,8 @@
                                 OperatingSystem.all,
                                 :id,
                                 :name,
-                                { #:prompt => 'Operating system',
-                                  #:selected => player.device.operating_system_id
+                                { :prompt => 'Operating system',
+                                  :selected => player.device.operating_system_id
                                 }, { class: 'form-control' }) %>
     </div>
 
@@ -71,12 +71,12 @@
                                 Locale.all,
                                 :id,
                                 :code,
-                                { #:prompt => 'Locale',
-                                  #:selected => player.device.locale_id
+                                { :prompt => 'Locale',
+                                  :selected => player.device.locale_id
                                 }, { class: 'form-control' }) %>
     </div>
   <% end %>
-
+  -->
   <div>
     <%= form.submit %>
   </div>
