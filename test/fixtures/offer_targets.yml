@@ -1,23 +1,62 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# for testing os-version filters
 one:
   offer_id: 1
-  min_player_age: 1
-  max_player_age: 1
+  min_player_age: 14
+  max_player_age: 150
   operating_system_id: 1
   min_os_major_version: 1
   min_os_minor_version: 1
-  min_os_patch_version: 1
+  min_os_patch_version: 11
   locale_id: 1
   gender_id: 1
 
-# two:
-#   offer: two
-#   min_player_age: 1
-#   max_player_age: 1
-#   operating_system: two
-#   min_os_major_version: 1
-#   min_os_minor_version: 1
-#   min_os_patch_version: 1
-#   locale: en_US
-#   gender: female
+# for testing player-age filters
+two:
+  offer_id: 1
+  min_player_age: 22
+  max_player_age: 23
+  operating_system_id: 1
+  min_os_major_version: 0
+  min_os_minor_version: 0
+  min_os_patch_version: 0
+  locale_id: 1
+  gender_id: 1
+
+# for testing os filters
+three:
+  offer_id: 1
+  min_player_age: 14
+  max_player_age: 150
+  operating_system_id: 2
+  min_os_major_version: 0
+  min_os_minor_version: 0
+  min_os_patch_version: 0
+  locale_id: 1
+  gender_id: 1
+
+# for testing player-gender filter
+four:
+  offer_id: 1
+  min_player_age: 14
+  max_player_age: 150
+  operating_system_id: 1
+  min_os_major_version: 0
+  min_os_minor_version: 0
+  min_os_patch_version: 0
+  locale_id: 1
+  gender_id: 2
+
+# for testing device-locale filters
+five:
+  offer_id: 1
+  min_player_age: 14
+  max_player_age: 100
+  operating_system_id: 1
+  min_os_major_version: 0
+  min_os_minor_version: 0
+  min_os_patch_version: 0
+  locale_id: 2
+  gender_id: 1
+

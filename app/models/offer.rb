@@ -1,7 +1,6 @@
 class Offer < ApplicationRecord
   monetize :payout_cents
 
-  # should we validate uniqueness of title?
   validates :title,
     presence: true
 
