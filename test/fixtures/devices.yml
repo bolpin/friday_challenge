@@ -1,18 +1,18 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-phoenix_phone:
+one:
   id: 1
-  model: phone1
-  operating_system_id: 1
+  model: non-android-phone
+  operating_system_id: 2
   os_major_version: 1
   os_minor_version: 1
   os_patch_version: 9
   locale_id: 1
   player_id: 1
 
-bobby_tablet:
+two:
   id: 2
-  model: tablet2
+  model: non-en-us-phone
   operating_system_id: 2
   os_major_version: 1
   os_minor_version: 1

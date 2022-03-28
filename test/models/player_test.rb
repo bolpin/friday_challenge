@@ -27,7 +27,7 @@ class PlayerTest < ActiveSupport::TestCase
     refute @player.valid?, "Birthdate on #{b_day} means player is not old enough"
   end
 
-  test "valid player attributes" do
+  test "valid player" do
     assert @player.valid?
   end
 

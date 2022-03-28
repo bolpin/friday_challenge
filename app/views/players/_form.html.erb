@@ -39,6 +39,11 @@
 
   <h3>Device</h3>
   <%= form.fields_for :device do |subform| %>
+    <% if subform.object.persisted? %>
+      <%= subform.check_box :_destroy %>
+      <%= subform.label :_destroy, "Destroy" %>
+    <% end %>
+
     <div>
       <%= subform.label :model, style: "display: block" %>
       <%= subform.text_field :model %>

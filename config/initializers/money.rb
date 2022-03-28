@@ -63,7 +63,7 @@ MoneyRails.configure do |config|
   #
   # BigDecimal::ROUND_UP,
   # BigDecimal::ROUND_DOWN,
-  BigDecimal::ROUND_HALF_UP,
+  # BigDecimal::ROUND_HALF_UP,
   # BigDecimal::ROUND_HALF_DOWN,
   # BigDecimal::ROUND_HALF_EVEN,
   # BigDecimal::ROUND_CEILING,

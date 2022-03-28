@@ -67,7 +67,7 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(
         :first_name, :last_name, :birthdate, :gender_id,
-        device_attributes: [ :model, :operating_system_id, :os_version, :locale_id ]
+        device_attributes: [ :model, :operating_system_id, :os_version, :locale_id, :_destroy, :id ]
       )
     end
 

@@ -3,20 +3,20 @@
 baz:
   id: 1
   first_name: Baz
-  last_name: MyString
+  last_name: Boop
   birthdate: 2000-03-25
   gender_id: 3
 
 bobby:
   id: 2
   first_name: Bobby
-  last_name: MyString
+  last_name: Flipper
   birthdate: 1970-03-25
   gender_id: 2
 
 reba:
   id: 3
   first_name: Reba
-  last_name: MyString
+  last_name: Mooma
   birthdate: 1965-03-25
   gender_id: 1

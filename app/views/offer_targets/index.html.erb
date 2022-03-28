@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Offer targets</h1>
+
+<div id="offer_targets">
+  <table>
+    <tr>
+      <th>Offer:</th>
+      <th>Player age:</th>
+      <th>Operating system:</th>
+      <th>Minimum OS version:</th>
+      <th>Locale:</th>
+      <th>Gender:</th>
+      <th></th>
+    </tr>
+    <% @offer_targets.each do |offer_target| %>
+      <%= render "offer_target_table_row", item: offer_target %>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "New offer target", new_offer_target_path %>

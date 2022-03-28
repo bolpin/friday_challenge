@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   title: Offer1
   header: $5 gift card
   description: MyText
@@ -8,7 +9,8 @@ one:
   payout_cents: 5.00
 
 two:
-  title: offer2
+  id: 2
+  title: Offer2
   header: Big Money!
   description: MyText
   points: 20

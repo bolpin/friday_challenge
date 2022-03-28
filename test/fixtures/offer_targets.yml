@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  offer_id: 1
+  min_player_age: 1
+  max_player_age: 1
+  operating_system_id: 1
+  min_os_major_version: 1
+  min_os_minor_version: 1
+  min_os_patch_version: 1
+  locale_id: 1
+  gender_id: 1
+
+# two:
+#   offer: two
+#   min_player_age: 1
+#   max_player_age: 1
+#   operating_system: two
+#   min_os_major_version: 1
+#   min_os_minor_version: 1
+#   min_os_patch_version: 1
+#   locale: en_US
+#   gender: female
