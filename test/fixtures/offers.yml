@@ -6,7 +6,7 @@ one:
   header: $5 gift card
   description: MyText
   points: 1000
-  payout_cents: 5.00
+  payout_cents: 500
 
 two:
   id: 2
@@ -14,4 +14,4 @@ two:
   header: Big Money!
   description: MyText
   points: 1000
-  payout_cents: 100.00
+  payout_cents: 10000

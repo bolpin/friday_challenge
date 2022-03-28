@@ -33,7 +33,8 @@
 
   <div>
     <%= form.label :payout, style: "display: block" %>
-    <%= form.number_field :payout_cents %>
+    <%= form.number_field :payout, step: :any %>
+
   </div>
 
   <div>

@@ -16,7 +16,7 @@ class OffersTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @offer.description
     fill_in "Header", with: @offer.header
-    fill_in "offer[payout_cents]", with: @offer.payout_cents
+    fill_in "offer[payout]", with: @offer.payout_cents
     fill_in "Points", with: @offer.points
     fill_in "Title", with: @offer.title
     click_on "Create Offer"
@@ -31,7 +31,7 @@ class OffersTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @offer.description
     fill_in "Header", with: @offer.header
-    fill_in "offer[payout_cents]", with: @offer.payout_cents
+    fill_in "offer[payout]", with: @offer.payout_cents
     fill_in "Points", with: @offer.points
     fill_in "Title", with: @offer.title
     click_on "Update Offer"
