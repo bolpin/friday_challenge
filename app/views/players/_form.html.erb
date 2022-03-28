@@ -36,13 +36,12 @@
                                  :selected => player.gender_id
                                }, { class: 'form-control' }) %>
   </div>
-  <!--
   <h3>Device</h3>
   <%= form.fields_for :device do |subform| %>
-    <% if subform.object.persisted? %>
-      <%= subform.check_box :_destroy %>
-      <%= subform.label :_destroy, "Delete this device" %>
-    <% end %>
+    <%# if subform.object.persisted? %>
+      <%#= subform.check_box :_destroy %>
+      <%#= subform.label :_destroy, "Delete this device" %>
+    <%# end %>
 
     <div>
       <%= subform.label :model, style: "display: block" %>
@@ -76,7 +75,6 @@
                                 }, { class: 'form-control' }) %>
     </div>
   <% end %>
-  -->
   <div>
     <%= form.submit %>
   </div>

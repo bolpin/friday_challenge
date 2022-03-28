@@ -13,7 +13,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-    # @player.build_device
+    @player.build_device
   end
 
   # GET /players/1/edit
