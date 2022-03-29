@@ -9,7 +9,6 @@ class Player < ApplicationRecord
 
   accepts_nested_attributes_for :device,
     allow_destroy: true,
-    # update_only: true,
     reject_if: proc { |attributes| false }
 
   validate :minimum_fourteen_years_old
@@ -20,17 +19,47 @@ class Player < ApplicationRecord
     end
   end
 
-  scope :birthdate_in_date_range, ->(date_range) {
+  scope :with_birthdate_in_range, ->(date_range) {
     where(birthdate: date_range)
   }
 
-  # Player.birthdate_in_date_range(Player.age_range_to_birthdate_range(50,52)).count
-  # helper to pass into the :birthdate_in_date_range scope
-  def Player.age_range_to_birthdate_range(min_age, max_age=150)
+  def Player.birthdate_range_for(min_age, max_age=150)
     (max_age.years.ago.yesterday.to_date..min_age.years.ago.to_date)
   end
 
   def age
     ((Time.zone.now - birthdate.to_time) / 1.year.seconds).floor
   end
+
+  scope :with_device_os, ->(os) {
+    Player.joins(device: :operating_system).where(
+      operating_systems: { name: os }
+    )
+  }
+
+  scope :with_device_locale, ->(locale) {
+    Player.joins(device: :operating_system).where(
+      locale: { code: locale }
+    )
+  }
+
+  # TODO fix this -> needs to join on device...?
+  scope :with_device_os_greater_or_equal_to_version, ->(segments) {
+    major,minor,patch = segments
+    where("os_major_version > ? OR
+           (os_major_version = ? AND os_minor_version > ?) OR
+           (os_major_version = ? AND
+            os_minor_version = ? AND
+            os_patch_version >= ?)",
+           major, major, minor, major, minor, patch)
+  }
+
+  def Player.string_to_segments(version_str)
+      segments = Gem::Version.new(version_str).release.segments
+      while segments.length < 3
+        segments.push 0
+      end
+      segments
+    end
+
 end
