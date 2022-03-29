@@ -10,7 +10,8 @@ class PlayersTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Players"
   end
 
-  # TODO: fix by filling in device attrs, as well
+  # TODO: fix by filling in device attrs, as well(?)
+
   # test "should create player" do
   #   visit players_url
   #   click_on "New player"

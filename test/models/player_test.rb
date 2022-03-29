@@ -37,4 +37,9 @@ class PlayerTest < ActiveSupport::TestCase
     refute @player.valid?
   end
 
+
+  test 'all matching a target offer--os-version conditional' do
+    target = targets(:one)
+    assert Player.all_matching_target_offer(target).map(
+  end
 end

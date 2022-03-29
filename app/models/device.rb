@@ -1,6 +1,8 @@
 require 'rubygems/version'
+require 'utils'
 
 class Device < ApplicationRecord
+  include Utils
 
   belongs_to :player
   belongs_to :operating_system
@@ -25,7 +27,7 @@ class Device < ApplicationRecord
   def os_version=(str)
     self.os_major_version,
       self.os_minor_version,
-      self.os_patch_version = Device.string_to_segments(str)
+      self.os_patch_version = parse_version(str)
   rescue
     self.os_major_version =
       self.os_minor_version =
@@ -52,23 +54,16 @@ class Device < ApplicationRecord
            major, major, minor, major, minor, patch)
   }
 
-  scope :ios, -> {
-    Device.joins(:operating_system).where(
-      operating_systems: { name: 'ios' }
+  scope :with_os, ->(os) {
+    joins(:operating_system).where(
+      operating_systems: { name: os }
     )
   }
 
-  scope :android, -> {
-    Device.joins(:operating_system).where(
-      operating_systems: { name: 'android' }
+  scope :with_locale, ->(code) {
+    joins(:locale).where(
+      locales: { code: code }
     )
   }
 
-  def Device.string_to_segments(version_str)
-      segments = Gem::Version.new(version_str).release.segments
-      while segments.length < 3
-        segments.push 0
-      end
-      segments
-    end
 end

@@ -3,48 +3,55 @@
 baz:
   id: 1
   first_name: Baz
-  last_name: Boo
+  last_name: Who
   birthdate: 2005-03-25
-  gender_id: 3
+  gender_id: 1
 
 suz:
   id: 2
   first_name: Suz
-  last_name: Boo
+  last_name: Who
   birthdate: 2000-03-25
   gender_id: 1
 
 reba:
   id: 3
   first_name: Reba
-  last_name: Boo
+  last_name: Who
   birthdate: 2001-03-25
   gender_id: 1
 
 maria:
   id: 4
   first_name: Maria
-  last_name: Boo
+  last_name: Who
   birthdate: 2002-03-25
   gender_id: 1
 
 cordelia:
   id: 5
   first_name: Cordelia
-  last_name: Boo
+  last_name: Who
   birthdate: 2003-03-25
   gender_id: 1
 
 cindy-lou:
   id: 6
   first_name: Cindy-Lou
-  last_name: Boo
+  last_name: Who
   birthdate: 2004-03-25
   gender_id: 1
 
 lulu:
   id: 7
   first_name: Lulu
-  last_name: Boo
+  last_name: Who
   birthdate: 2005-03-25
   gender_id: 1
+
+haru:
+  id: 8
+  first_name: Haru
+  last_name: Who
+  birthdate: 2006-03-25
+  gender_id: 2

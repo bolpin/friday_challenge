@@ -1,7 +1,7 @@
 class Player < ApplicationRecord
 
   has_one :device, dependent: :destroy
-  belongs_to :gender, optional: true
+  belongs_to :gender #, optional: true    (?)
 
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -23,43 +23,39 @@ class Player < ApplicationRecord
     where(birthdate: date_range)
   }
 
-  def Player.birthdate_range_for(min_age, max_age=150)
-    (max_age.years.ago.yesterday.to_date..min_age.years.ago.to_date)
-  end
-
   def age
     ((Time.zone.now - birthdate.to_time) / 1.year.seconds).floor
   end
 
-  scope :with_device_os, ->(os) {
-    Player.joins(device: :operating_system).where(
-      operating_systems: { name: os }
-    )
-  }
+  def Player.all_matching_target_offer(target)
 
-  scope :with_device_locale, ->(locale) {
-    Player.joins(device: :operating_system).where(
-      locale: { code: locale }
-    )
-  }
+    Player.find_by_sql("
+      SELECT * FROM players WHERE
+      id IN (
+        SELECT d.player_id FROM devices d
+        WHERE d.player_id IN
+        (
+          SELECT p.id
+          FROM players p WHERE
+            p.gender_id = #{target.gender_id} AND
+            p.birthdate BETWEEN
+              CURRENT_DATE - INTERVAL '1 year' * #{target.max_player_age} AND
+              CURRENT_DATE - INTERVAL '1 year' * #{target.min_player_age}
+        )
+        AND
+        d.locale_id = #{target.locale_id} AND
+        d.operating_system_id = #{target.operating_system_id} AND
+        (d.os_major_version > #{target.min_os_major_version})
+        OR
+        (d.os_major_version = #{target.min_os_major_version} AND
+          d.os_minor_version > #{target.min_os_minor_version})
+        OR
+        (d.os_major_version = #{target.min_os_major_version} AND
+          d.os_minor_version = #{target.min_os_minor_version} AND
+          d.os_patch_version >= #{target.min_os_patch_version})
+    );
+    ")
+  end
 
-  # TODO fix this -> needs to join on device...?
-  scope :with_device_os_greater_or_equal_to_version, ->(segments) {
-    major,minor,patch = segments
-    where("os_major_version > ? OR
-           (os_major_version = ? AND os_minor_version > ?) OR
-           (os_major_version = ? AND
-            os_minor_version = ? AND
-            os_patch_version >= ?)",
-           major, major, minor, major, minor, patch)
-  }
-
-  def Player.string_to_segments(version_str)
-      segments = Gem::Version.new(version_str).release.segments
-      while segments.length < 3
-        segments.push 0
-      end
-      segments
-    end
 
 end

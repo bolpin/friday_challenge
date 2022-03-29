@@ -2,7 +2,7 @@ require "test_helper"
 
 class OfferTargetsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @offer_target = offer_targets(:one)
+    @offer_target = offer_targets(:os_version_conditional)
   end
 
   test "should get index" do

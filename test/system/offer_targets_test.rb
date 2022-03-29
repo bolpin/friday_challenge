@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class OfferTargetsTest < ApplicationSystemTestCase
   setup do
-    @offer_target = offer_targets(:one)
+    @offer_target = offer_targets(:os_version_conditional)
   end
 
   test "visiting the index" do

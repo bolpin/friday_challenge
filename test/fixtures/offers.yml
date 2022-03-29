@@ -2,16 +2,16 @@
 
 one:
   id: 1
-  title: Offer1
+  title: Offer One
   header: $5 gift card
   description: MyText
   points: 1000
-  payout_cents: 500
+  payout_cents: 100
 
 two:
   id: 2
-  title: Offer2
+  title: Offer Two
   header: Big Money!
   description: MyText
-  points: 1000
-  payout_cents: 10000
+  points: 2000
+  payout_cents: 12345
