@@ -8,7 +8,7 @@ class OfferTarget < ApplicationRecord
   belongs_to :locale
   belongs_to :gender
 
-  def OfferTarget.total_payout(min_age=14, max_age=150)
+  def OfferTarget.total_payout(min_age=14, max_age=100)
     query_total_payout_in_cents = <<-SQL
       select sum(o.payout_cents) as total_payout_in_cents
       FROM offers o

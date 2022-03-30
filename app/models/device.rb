@@ -27,14 +27,14 @@ class Device < ApplicationRecord
   def os_version=(str)
     self.os_major_version,
       self.os_minor_version,
-      self.os_patch_version = parse_version(str)
+      self.os_patch_version = parse_vers(str)
   rescue
     self.os_major_version =
       self.os_minor_version =
       self.os_patch_version = nil
   end
 
-  scope :greater_than_or_equal_to_version, ->(segments) {
+  scope :gr_eq_to_vers, ->(segments) {
     major,minor,patch = segments
     where("os_major_version > ? OR
            (os_major_version = ? AND os_minor_version > ?) OR
@@ -44,7 +44,7 @@ class Device < ApplicationRecord
            major, major, minor, major, minor, patch)
   }
 
-  scope :less_than_or_equal_to_version, ->(segments) {
+  scope :ls_eq_to_vers, ->(segments) {
     major,minor,patch = segments
     where("os_major_version < ? OR
            (os_major_version = ? AND os_minor_version < ?) OR

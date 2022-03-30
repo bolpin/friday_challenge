@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :offer_targets
   resources :offers
   resources :players
-  # get 'static_pages/home'
 
-  # Defines the root path route ("/")
-  root "static_pages#home"
+  root "offer_targets#index"
 end

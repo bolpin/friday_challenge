@@ -1,9 +1,13 @@
+require 'utils'
 class OfferTargetsController < ApplicationController
+  include Utils
   before_action :set_offer_target, only: %i[ show edit update destroy ]
 
   # GET /offer_targets or /offer_targets.json
   def index
     @offer_targets = OfferTarget.all
+    @ios_count = Device.with_os('ios').gr_eq_to_vers(parse_vers('0.0.2')).ls_eq_to_vers(parse_vers('100')).count
+    @android_count = Device.with_os('android').gr_eq_to_vers(parse_vers('0.0.2')).ls_eq_to_vers(parse_vers('100')).count
   end
 
   # GET /offer_targets/1 or /offer_targets/1.json

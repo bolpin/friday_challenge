@@ -57,5 +57,4 @@ class Player < ApplicationRecord
     ")
   end
 
-
 end

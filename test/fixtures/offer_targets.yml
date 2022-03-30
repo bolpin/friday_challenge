@@ -5,7 +5,7 @@ os_version_conditional:
   id: 1
   offer_id: 1
   min_player_age: 1
-  max_player_age: 150
+  max_player_age: 100
   operating_system_id: 2
   min_os_major_version: 0
   min_os_minor_version: 10
@@ -31,7 +31,7 @@ os_conditional:
   id: 3
   offer_id: 1
   min_player_age: 1
-  max_player_age: 150
+  max_player_age: 100
   operating_system_id: 2
   min_os_major_version: 0
   min_os_minor_version: 0
@@ -44,7 +44,7 @@ gender_conditional:
   id: 4
   offer_id: 1
   min_player_age: 1
-  max_player_age: 150
+  max_player_age: 100
   operating_system_id: 1
   min_os_major_version: 0
   min_os_minor_version: 0
