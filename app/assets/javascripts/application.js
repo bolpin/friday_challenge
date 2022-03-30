@@ -1271,7 +1271,7 @@
             }
             return children;
           }
-          function createContext(defaultValue) {
+          function createContext2(defaultValue) {
             var context = {
               $$typeof: REACT_CONTEXT_TYPE,
               _currentValue: defaultValue,
@@ -1448,26 +1448,26 @@
             }
             return lazyType;
           }
-          function forwardRef(render) {
+          function forwardRef(render2) {
             {
-              if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
+              if (render2 != null && render2.$$typeof === REACT_MEMO_TYPE) {
                 error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
-              } else if (typeof render !== "function") {
-                error("forwardRef requires a render function but was given %s.", render === null ? "null" : typeof render);
+              } else if (typeof render2 !== "function") {
+                error("forwardRef requires a render function but was given %s.", render2 === null ? "null" : typeof render2);
               } else {
-                if (render.length !== 0 && render.length !== 2) {
-                  error("forwardRef render functions accept exactly two parameters: props and ref. %s", render.length === 1 ? "Did you forget to use the ref parameter?" : "Any additional parameter will be undefined.");
+                if (render2.length !== 0 && render2.length !== 2) {
+                  error("forwardRef render functions accept exactly two parameters: props and ref. %s", render2.length === 1 ? "Did you forget to use the ref parameter?" : "Any additional parameter will be undefined.");
                 }
               }
-              if (render != null) {
-                if (render.defaultProps != null || render.propTypes != null) {
+              if (render2 != null) {
+                if (render2.defaultProps != null || render2.propTypes != null) {
                   error("forwardRef render functions do not support propTypes or defaultProps. Did you accidentally pass a React component?");
                 }
               }
             }
             var elementType2 = {
               $$typeof: REACT_FORWARD_REF_TYPE,
-              render
+              render: render2
             };
             {
               var ownName;
@@ -1479,8 +1479,8 @@
                 },
                 set: function(name) {
                   ownName = name;
-                  if (!render.name && !render.displayName) {
-                    render.displayName = name;
+                  if (!render2.name && !render2.displayName) {
+                    render2.displayName = name;
                   }
                 }
               });
@@ -1540,7 +1540,7 @@
             }
             return dispatcher;
           }
-          function useContext(Context) {
+          function useContext2(Context) {
             var dispatcher = resolveDispatcher();
             {
               if (Context._context !== void 0) {
@@ -1554,7 +1554,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState(initialState) {
+          function useState4(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -2332,7 +2332,7 @@
           exports.Suspense = REACT_SUSPENSE_TYPE;
           exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
           exports.cloneElement = cloneElement$1;
-          exports.createContext = createContext;
+          exports.createContext = createContext2;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
@@ -2343,7 +2343,7 @@
           exports.startTransition = startTransition;
           exports.unstable_act = act;
           exports.useCallback = useCallback;
-          exports.useContext = useContext;
+          exports.useContext = useContext2;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
           exports.useEffect = useEffect;
@@ -2354,7 +2354,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState;
+          exports.useState = useState4;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2850,9 +2850,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React2 = require_react();
+          var React11 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React11.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4248,7 +4248,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React2.Children.forEach(props.children, function(child) {
+                  React11.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11795,7 +11795,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React2.Component().refs;
+          var emptyRefsObject = new React11.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -16522,7 +16522,7 @@
                 }
               }
             }
-            var render2 = Component.render;
+            var render3 = Component.render;
             var ref = workInProgress2.ref;
             var nextChildren;
             var hasId;
@@ -16533,12 +16533,12 @@
             {
               ReactCurrentOwner$1.current = workInProgress2;
               setIsRendering(true);
-              nextChildren = renderWithHooks(current2, workInProgress2, render2, nextProps, ref, renderLanes2);
+              nextChildren = renderWithHooks(current2, workInProgress2, render3, nextProps, ref, renderLanes2);
               hasId = checkDidRenderIdHook();
               if (workInProgress2.mode & StrictLegacyMode) {
                 setIsStrictModeForDevtools(true);
                 try {
-                  nextChildren = renderWithHooks(current2, workInProgress2, render2, nextProps, ref, renderLanes2);
+                  nextChildren = renderWithHooks(current2, workInProgress2, render3, nextProps, ref, renderLanes2);
                   hasId = checkDidRenderIdHook();
                 } finally {
                   setIsStrictModeForDevtools(false);
@@ -17801,9 +17801,9 @@
               }
             }
             var newProps = workInProgress2.pendingProps;
-            var render2 = newProps.children;
+            var render3 = newProps.children;
             {
-              if (typeof render2 !== "function") {
+              if (typeof render3 !== "function") {
                 error("A context consumer was rendered with multiple children, or a child that isn't a function. A context consumer expects a single child that is a function. If you did pass a function, make sure there is no trailing or leading whitespace around it.");
               }
             }
@@ -17816,7 +17816,7 @@
             {
               ReactCurrentOwner$1.current = workInProgress2;
               setIsRendering(true);
-              newChildren = render2(newValue);
+              newChildren = render3(newValue);
               setIsRendering(false);
             }
             {
@@ -22826,7 +22826,7 @@
             }
             return legacyRenderSubtreeIntoContainer(null, element, container, true, callback);
           }
-          function render(element, container, callback) {
+          function render2(element, container, callback) {
             {
               error("ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot");
             }
@@ -22963,7 +22963,7 @@
           exports.flushSync = flushSync$1;
           exports.hydrate = hydrate;
           exports.hydrateRoot = hydrateRoot$1;
-          exports.render = render;
+          exports.render = render2;
           exports.unmountComponentAtNode = unmountComponentAtNode;
           exports.unstable_batchedUpdates = batchedUpdates$1;
           exports.unstable_renderSubtreeIntoContainer = renderSubtreeIntoContainer;
@@ -22986,37 +22986,6 @@
       } else {
         module.exports = require_react_dom_development();
       }
-    }
-  });
-
-  // node_modules/react-dom/client.js
-  var require_client = __commonJS({
-    "node_modules/react-dom/client.js"(exports) {
-      "use strict";
-      var m = require_react_dom();
-      if (false) {
-        exports.createRoot = m.createRoot;
-        exports.hydrateRoot = m.hydrateRoot;
-      } else {
-        i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-        exports.createRoot = function(c, o) {
-          i.usingClientEntryPoint = true;
-          try {
-            return m.createRoot(c, o);
-          } finally {
-            i.usingClientEntryPoint = false;
-          }
-        };
-        exports.hydrateRoot = function(c, h, o) {
-          i.usingClientEntryPoint = true;
-          try {
-            return m.hydrateRoot(c, h, o);
-          } finally {
-            i.usingClientEntryPoint = false;
-          }
-        };
-      }
-      var i;
     }
   });
 
@@ -26249,119 +26218,308 @@
   };
   customElements.define("turbo-cable-stream-source", TurboCableStreamSourceElement);
 
-  // app/javascript/components/clock.jsx
-  var import_client = __toESM(require_client());
+  // app/javascript/components/index.jsx
+  var import_react11 = __toESM(require_react());
+  var import_react_dom = __toESM(require_react_dom());
+
+  // app/javascript/components/ColorProvider.jsx
   var import_react = __toESM(require_react());
-  function Square(props) {
-    return /* @__PURE__ */ import_react.default.createElement("button", {
-      className: "square",
-      onClick: props.onClick
-    }, props.value);
+
+  // app/javascript/components/color-data.json
+  var color_data_default = [
+    {
+      id: "0175d1f0-a8c6-41bf-8d02-df5734d829a4",
+      title: "ocean at dusk",
+      color: "#00c4e2",
+      rating: 5
+    },
+    {
+      id: "83c7ba2f-7392-4d7d-9e23-35adbe186046",
+      title: "lawn",
+      color: "#26ac56",
+      rating: 3
+    },
+    {
+      id: "a11e3995-b0bd-4d58-8c48-5e49ae7f7f23",
+      title: "bright red",
+      color: "#ff0000",
+      rating: 0
+    }
+  ];
+
+  // node_modules/uuid/dist/esm-browser/rng.js
+  var getRandomValues;
+  var rnds8 = new Uint8Array(16);
+  function rng() {
+    if (!getRandomValues) {
+      getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== "undefined" && typeof msCrypto.getRandomValues === "function" && msCrypto.getRandomValues.bind(msCrypto);
+      if (!getRandomValues) {
+        throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+      }
+    }
+    return getRandomValues(rnds8);
   }
-  var Board = class extends import_react.default.Component {
-    renderSquare(i) {
-      return /* @__PURE__ */ import_react.default.createElement(Square, {
-        value: this.props.squares[i],
-        onClick: () => this.props.onClick(i)
-      });
+
+  // node_modules/uuid/dist/esm-browser/regex.js
+  var regex_default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+
+  // node_modules/uuid/dist/esm-browser/validate.js
+  function validate(uuid2) {
+    return typeof uuid2 === "string" && regex_default.test(uuid2);
+  }
+  var validate_default = validate;
+
+  // node_modules/uuid/dist/esm-browser/stringify.js
+  var byteToHex = [];
+  for (i = 0; i < 256; ++i) {
+    byteToHex.push((i + 256).toString(16).substr(1));
+  }
+  var i;
+  function stringify(arr) {
+    var offset = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
+    var uuid2 = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
+    if (!validate_default(uuid2)) {
+      throw TypeError("Stringified UUID is invalid");
     }
-    render() {
-      return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "board-row"
-      }, this.renderSquare(0), this.renderSquare(1), this.renderSquare(2)), /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "board-row"
-      }, this.renderSquare(3), this.renderSquare(4), this.renderSquare(5)), /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "board-row"
-      }, this.renderSquare(6), this.renderSquare(7), this.renderSquare(8)));
-    }
-  };
-  var Game = class extends import_react.default.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        history: [
-          {
-            squares: Array(9).fill(null)
-          }
-        ],
-        stepNumber: 0,
-        xIsNext: true
-      };
-    }
-    handleClick(i) {
-      const history2 = this.state.history.slice(0, this.state.stepNumber + 1);
-      const current = history2[history2.length - 1];
-      const squares = current.squares.slice();
-      if (calculateWinner(squares) || squares[i]) {
-        return;
+    return uuid2;
+  }
+  var stringify_default = stringify;
+
+  // node_modules/uuid/dist/esm-browser/v4.js
+  function v4(options, buf, offset) {
+    options = options || {};
+    var rnds = options.random || (options.rng || rng)();
+    rnds[6] = rnds[6] & 15 | 64;
+    rnds[8] = rnds[8] & 63 | 128;
+    if (buf) {
+      offset = offset || 0;
+      for (var i = 0; i < 16; ++i) {
+        buf[offset + i] = rnds[i];
       }
-      squares[i] = this.state.xIsNext ? "X" : "O";
-      this.setState({
-        history: history2.concat([
-          {
-            squares
-          }
-        ]),
-        stepNumber: history2.length,
-        xIsNext: !this.state.xIsNext
-      });
+      return buf;
     }
-    jumpTo(step) {
-      this.setState({
-        stepNumber: step,
-        xIsNext: step % 2 === 0
-      });
-    }
-    render() {
-      const history2 = this.state.history;
-      const current = history2[this.state.stepNumber];
-      const winner = calculateWinner(current.squares);
-      const moves = history2.map((step, move) => {
-        const desc = move ? "Go to move #" + move : "Go to game start";
-        return /* @__PURE__ */ import_react.default.createElement("li", {
-          key: move
-        }, /* @__PURE__ */ import_react.default.createElement("button", {
-          onClick: () => this.jumpTo(move)
-        }, desc));
-      });
-      let status;
-      if (winner) {
-        status = "Winner: " + winner;
-      } else {
-        status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+    return stringify_default(rnds);
+  }
+  var v4_default = v4;
+
+  // app/javascript/components/ColorProvider.jsx
+  var ColorContext = (0, import_react.createContext)();
+  var useColors = () => (0, import_react.useContext)(ColorContext);
+  function ColorProvider({ children }) {
+    const [colors, setColors] = (0, import_react.useState)(color_data_default);
+    const addColor = (title, color) => setColors([
+      ...colors,
+      {
+        id: v4_default(),
+        rating: 0,
+        title,
+        color
       }
-      return /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "game"
-      }, /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "game-board"
-      }, /* @__PURE__ */ import_react.default.createElement(Board, {
-        squares: current.squares,
-        onClick: (i) => this.handleClick(i)
-      })), /* @__PURE__ */ import_react.default.createElement("div", {
-        className: "game-info"
-      }, /* @__PURE__ */ import_react.default.createElement("div", null, status), /* @__PURE__ */ import_react.default.createElement("ol", null, moves)));
-    }
+    ]);
+    const rateColor = (id, rating) => setColors(colors.map((color) => color.id === id ? { ...color, rating } : color));
+    const removeColor = (id) => setColors(colors.filter((color) => color.id !== id));
+    return /* @__PURE__ */ import_react.default.createElement(ColorContext.Provider, {
+      value: { colors, addColor, removeColor, rateColor }
+    }, children);
+  }
+
+  // app/javascript/components/App.jsx
+  var import_react10 = __toESM(require_react());
+
+  // app/javascript/components/ColorList.jsx
+  var import_react7 = __toESM(require_react());
+
+  // app/javascript/components/Color.jsx
+  var import_react6 = __toESM(require_react());
+
+  // app/javascript/components/StarRating.jsx
+  var import_react5 = __toESM(require_react());
+
+  // app/javascript/components/lib.js
+  var createArray = (length) => [...Array(length)];
+
+  // app/javascript/components/Star.jsx
+  var import_react4 = __toESM(require_react());
+
+  // node_modules/react-icons/lib/esm/iconBase.js
+  var import_react3 = __toESM(require_react());
+
+  // node_modules/react-icons/lib/esm/iconContext.js
+  var import_react2 = __toESM(require_react());
+  var DefaultContext = {
+    color: void 0,
+    size: void 0,
+    className: void 0,
+    style: void 0,
+    attr: void 0
   };
-  import_client.default.createRoot(document.getElementById("root")).render(/* @__PURE__ */ import_react.default.createElement(Game, null));
-  function calculateWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
+  var IconContext = import_react2.default.createContext && import_react2.default.createContext(DefaultContext);
+
+  // node_modules/react-icons/lib/esm/iconBase.js
+  var __assign = function() {
+    __assign = Object.assign || function(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+      }
+      return t;
+    };
+    return __assign.apply(this, arguments);
+  };
+  var __rest = function(s, e) {
+    var t = {};
+    for (var p in s)
+      if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+          t[p[i]] = s[p[i]];
+      }
+    return t;
+  };
+  function Tree2Element(tree) {
+    return tree && tree.map(function(node, i) {
+      return import_react3.default.createElement(node.tag, __assign({
+        key: i
+      }, node.attr), Tree2Element(node.child));
+    });
+  }
+  function GenIcon(data) {
+    return function(props) {
+      return import_react3.default.createElement(IconBase, __assign({
+        attr: __assign({}, data.attr)
+      }, props), Tree2Element(data.child));
+    };
+  }
+  function IconBase(props) {
+    var elem = function(conf) {
+      var attr = props.attr, size = props.size, title = props.title, svgProps = __rest(props, ["attr", "size", "title"]);
+      var computedSize = size || conf.size || "1em";
+      var className;
+      if (conf.className)
+        className = conf.className;
+      if (props.className)
+        className = (className ? className + " " : "") + props.className;
+      return import_react3.default.createElement("svg", __assign({
+        stroke: "currentColor",
+        fill: "currentColor",
+        strokeWidth: "0"
+      }, conf.attr, attr, svgProps, {
+        className,
+        style: __assign(__assign({
+          color: props.color || conf.color
+        }, conf.style), props.style),
+        height: computedSize,
+        width: computedSize,
+        xmlns: "http://www.w3.org/2000/svg"
+      }), title && import_react3.default.createElement("title", null, title), props.children);
+    };
+    return IconContext !== void 0 ? import_react3.default.createElement(IconContext.Consumer, null, function(conf) {
+      return elem(conf);
+    }) : elem(DefaultContext);
+  }
+
+  // node_modules/react-icons/fa/index.esm.js
+  function FaStar(props) {
+    return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" } }] })(props);
+  }
+  function FaTrash(props) {
+    return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 448 512" }, "child": [{ "tag": "path", "attr": { "d": "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" } }] })(props);
+  }
+
+  // app/javascript/components/Star.jsx
+  function Star({ selected = false, onSelect = (f) => f }) {
+    return /* @__PURE__ */ import_react4.default.createElement(FaStar, {
+      color: selected ? "red" : "grey",
+      onClick: onSelect
+    });
+  }
+
+  // app/javascript/components/StarRating.jsx
+  function StarRating({
+    totalStars = 5,
+    selectedStars = 0,
+    onRate = (f) => f
+  }) {
+    return /* @__PURE__ */ import_react5.default.createElement(import_react5.default.Fragment, null, createArray(totalStars).map((n, i) => /* @__PURE__ */ import_react5.default.createElement(Star, {
+      key: i,
+      selected: selectedStars > i,
+      onSelect: () => onRate(i + 1)
+    })), /* @__PURE__ */ import_react5.default.createElement("p", null, selectedStars, " of ", totalStars, " stars"));
+  }
+
+  // app/javascript/components/Color.jsx
+  function Color({ id, title, color, rating }) {
+    const { rateColor, removeColor } = useColors();
+    return /* @__PURE__ */ import_react6.default.createElement("section", null, /* @__PURE__ */ import_react6.default.createElement("h1", null, title), /* @__PURE__ */ import_react6.default.createElement("button", {
+      onClick: () => removeColor(id)
+    }, /* @__PURE__ */ import_react6.default.createElement(FaTrash, null)), /* @__PURE__ */ import_react6.default.createElement("div", {
+      style: { height: 50, backgroundColor: color }
+    }), /* @__PURE__ */ import_react6.default.createElement(StarRating, {
+      selectedStars: rating,
+      onRate: (rating2) => rateColor(id, rating2)
+    }));
+  }
+
+  // app/javascript/components/ColorList.jsx
+  function ColorList() {
+    const { colors } = useColors();
+    if (!colors.length)
+      return /* @__PURE__ */ import_react7.default.createElement("div", null, "No Colors Listed. (Add a Color)");
+    return /* @__PURE__ */ import_react7.default.createElement("div", null, colors.map((color) => /* @__PURE__ */ import_react7.default.createElement(Color, {
+      key: color.id,
+      ...color
+    })));
+  }
+
+  // app/javascript/components/AddColorForm.jsx
+  var import_react9 = __toESM(require_react());
+
+  // app/javascript/components/hooks.jsx
+  var import_react8 = __toESM(require_react());
+  var useInput = (initialValue) => {
+    const [value, setValue] = (0, import_react8.useState)(initialValue);
+    return [
+      { value, onChange: (e) => setValue(e.target.value) },
+      () => setValue(initialValue)
     ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
+  };
+
+  // app/javascript/components/AddColorForm.jsx
+  function AddColorForm() {
+    const [titleProps, resetTitle] = useInput("");
+    const [colorProps, resetColor] = useInput("#000000");
+    const { addColor } = useColors();
+    const submit = (e) => {
+      e.preventDefault();
+      addColor(titleProps.value, colorProps.value);
+      resetTitle();
+      resetColor();
+    };
+    return /* @__PURE__ */ import_react9.default.createElement("form", {
+      onSubmit: submit
+    }, /* @__PURE__ */ import_react9.default.createElement("input", {
+      ...titleProps,
+      type: "text",
+      placeholder: "color title...",
+      required: true
+    }), /* @__PURE__ */ import_react9.default.createElement("input", {
+      ...colorProps,
+      type: "color",
+      required: true
+    }), /* @__PURE__ */ import_react9.default.createElement("button", null, "ADD"));
   }
+
+  // app/javascript/components/App.jsx
+  function App() {
+    return /* @__PURE__ */ import_react10.default.createElement(import_react10.default.Fragment, null, /* @__PURE__ */ import_react10.default.createElement(AddColorForm, null), /* @__PURE__ */ import_react10.default.createElement(ColorList, null));
+  }
+
+  // app/javascript/components/index.jsx
+  (0, import_react_dom.render)(/* @__PURE__ */ import_react11.default.createElement(ColorProvider, null, /* @__PURE__ */ import_react11.default.createElement(App, null)), document.getElementById("root"));
 })();
 /**
  * @license React

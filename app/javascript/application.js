@@ -1,3 +1,3 @@
 import "@hotwired/turbo-rails"
-import "./components/clock.jsx"
+import "./components/index.jsx"
 
