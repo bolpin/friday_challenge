@@ -45,9 +45,9 @@ OfferTarget.create(offer_id: 1,
                    min_player_age: 1,
                    max_player_age: 100,
                    operating_system_id: 1,
-                   min_os_major_version: 99,
+                   min_os_major_version: 10,
                    min_os_minor_version: 0,
-                   min_os_patch_version: 11,
+                   min_os_patch_version: 0,
                    locale_id: 1,
                    gender_id: 1)
 

@@ -3,19 +3,19 @@
 <h1>Offer targets</h1>
 
 <p>
-Total payout (ages 17-21): <strong> <%= OfferTarget.total_payout(17, 21) %></strong>
+<!--   Total payout (ages 15-25): <strong> <%= OfferTarget.total_payout(15, 25) %></strong> -->
+<!-- <br/> -->
+<!--   Total payout (ages 30-40): <strong> <%= OfferTarget.total_payout(30, 40) %></strong> -->
+<!-- <br/> -->
+  Total payout (ages 14-100): <strong> <%= OfferTarget.total_payout(14, 100) %></strong>
 </p>
 
 <p>
-Total payout (ages 14-100): <strong> <%= OfferTarget.total_payout(14, 100) %></strong>
-</p>
-
-<p>
-IOS device count between version range: <strong> <%= @ios_count %> </strong>
-</p>
-
-<p>
-Android device count between version range: <strong> <%= @android_count%></strong>
+<!--
+  IOS device count between version range: <%= @min_version %> - <%= @max_version %>: <strong> <%= @ios_count %> </strong>
+<br/>
+-->
+  Android device count between version range: <%= @min_version %> - <%= @max_version %>: <strong> <%= @android_count %> </strong>
 </p>
 
 <%= link_to "New offer target", new_offer_target_path %>

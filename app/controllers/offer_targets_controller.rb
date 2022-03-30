@@ -6,8 +6,10 @@ class OfferTargetsController < ApplicationController
   # GET /offer_targets or /offer_targets.json
   def index
     @offer_targets = OfferTarget.all
-    @ios_count = Device.with_os('ios').gr_eq_to_vers(parse_vers('0.0.2')).ls_eq_to_vers(parse_vers('100')).count
-    @android_count = Device.with_os('android').gr_eq_to_vers(parse_vers('0.0.2')).ls_eq_to_vers(parse_vers('100')).count
+    @min_version = '0.0.2'
+    @max_version = '10.0'
+    @ios_count = Device.with_os('ios').gr_eq_to_vers(parse_vers(@min_version)).ls_eq_to_vers(parse_vers(@max_version)).count
+    @android_count = Device.with_os('android').gr_eq_to_vers(parse_vers(@min_version)).ls_eq_to_vers(parse_vers(@max_version)).count
   end
 
   # GET /offer_targets/1 or /offer_targets/1.json
