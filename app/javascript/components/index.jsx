@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "react-dom";
-import ColorProvider from "./ColorProvider";
 import App from "./App";
+import * as ReactDOMClient from 'react-dom/client';
 
-render(
-  <ColorProvider>
-    <App />
-  </ColorProvider>,
-  document.getElementById("root")
+const container = document.getElementById('root');
+const root = ReactDOMClient.createRoot(container);
+
+root.render(
+  <App />
 );
+
