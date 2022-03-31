@@ -17,3 +17,4 @@ class DeviceCountController < ApplicationController
     ]
   end
 end
+

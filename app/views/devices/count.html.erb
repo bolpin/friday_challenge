@@ -1,6 +1,4 @@
-<h1>TotalPayout</h1>
-
-<%= form_with url: "/total_payout_query", method: :get do |form| %>
+<%= form_with url: "/total_payout", method: :get do |form| %>
   <%= form.label :min_age, "Minimum Age:" %>
   <%= form.number_field :min_age %>
   <%= form.label :max_age, "Maximum Age:" %>
