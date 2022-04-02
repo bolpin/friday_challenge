@@ -7,6 +7,7 @@
 
 <h2>Matching Players</h2>
 <% @players.each do |player| %>
+  <%= player.id %>
   <%= render player %>
   <p>
     <%= link_to "Show this player", player %>

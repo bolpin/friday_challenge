@@ -15,11 +15,11 @@ const players= [
   ]
 
 
-export default function App = () => {
+export default App = () => {
   return (
     <>
       <h1>App </h1>
-      <Players players={players} />
+      // <Players players={players} />
     </>
   );
 }

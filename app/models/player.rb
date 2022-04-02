@@ -45,14 +45,16 @@ class Player < ApplicationRecord
         AND
         d.locale_id = #{target.locale_id} AND
         d.operating_system_id = #{target.operating_system_id} AND
-        (d.os_major_version > #{target.min_os_major_version})
-        OR
-        (d.os_major_version = #{target.min_os_major_version} AND
-          d.os_minor_version > #{target.min_os_minor_version})
-        OR
-        (d.os_major_version = #{target.min_os_major_version} AND
-          d.os_minor_version = #{target.min_os_minor_version} AND
-          d.os_patch_version >= #{target.min_os_patch_version})
+        (
+          (d.os_major_version > #{target.min_os_major_version})
+          OR
+          (d.os_major_version = #{target.min_os_major_version} AND
+            d.os_minor_version > #{target.min_os_minor_version})
+          OR
+          (d.os_major_version = #{target.min_os_major_version} AND
+            d.os_minor_version = #{target.min_os_minor_version} AND
+            d.os_patch_version >= #{target.min_os_patch_version})
+        )
     );
     ")
   end

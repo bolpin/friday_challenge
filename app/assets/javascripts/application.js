@@ -1554,7 +1554,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState3(initialState) {
+          function useState2(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -2354,7 +2354,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState3;
+          exports.useState = useState2;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -26249,64 +26249,42 @@
   };
   customElements.define("turbo-cable-stream-source", TurboCableStreamSourceElement);
 
-  // app/javascript/components/index.jsx
-  var import_react4 = __toESM(require_react());
-
-  // app/javascript/components/App.jsx
+  // app/javascript/components/index.js
   var import_react3 = __toESM(require_react());
 
-  // app/javascript/components/DeviceCountForm.jsx
+  // app/javascript/components/App.js
   var import_react2 = __toESM(require_react());
 
-  // app/javascript/components/hooks.jsx
+  // app/javascript/components/Players/Players.js
   var import_react = __toESM(require_react());
-  var useInput = (initialValue) => {
-    const [value, setValue] = (0, import_react.useState)(initialValue);
-    return [
-      { value, onChange: (e) => setValue(e.target.value) },
-      () => setValue(initialValue)
-    ];
+  var Players_default = Players = (props) => {
+    return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Players "), props.players);
   };
 
-  // app/javascript/components/DeviceCountForm.jsx
-  function DeviceCountForm() {
-    const [osProps, resetOs] = useInput("");
-    const [minVersionProps, resetMinVersion] = useInput("");
-    const [maxVersionProps, resetMaxVersion] = useInput("");
-    const submit = (e) => {
-      e.preventDefault();
-      console.log("submitted");
-    };
-    return /* @__PURE__ */ import_react2.default.createElement("form", {
-      onSubmit: submit
-    }, /* @__PURE__ */ import_react2.default.createElement("input", {
-      ...osProps,
-      type: "text",
-      placeholder: "Operating System",
-      required: true
-    }), /* @__PURE__ */ import_react2.default.createElement("input", {
-      ...minVersionProps,
-      type: "text",
-      placeholder: "Min. version",
-      required: true
-    }), /* @__PURE__ */ import_react2.default.createElement("input", {
-      ...maxVersionProps,
-      type: "text",
-      placeholder: "Max. version",
-      required: true
-    }), /* @__PURE__ */ import_react2.default.createElement("button", null, "Submit"));
-  }
+  // app/javascript/components/App.js
+  var players = [
+    {
+      first_name: "Brian",
+      last_name: "Olpin",
+      birthdate: "1970-03-09"
+    },
+    {
+      first_name: "Ellie",
+      last_name: "Olpin",
+      birthdate: "2003-03-07"
+    }
+  ];
+  var App_default = App = () => {
+    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("h1", null, "App "), /* @__PURE__ */ import_react2.default.createElement(Players_default, {
+      players
+    }));
+  };
 
-  // app/javascript/components/App.jsx
-  function App() {
-    return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement(DeviceCountForm, null));
-  }
-
-  // app/javascript/components/index.jsx
+  // app/javascript/components/index.js
   var ReactDOMClient = __toESM(require_client());
   var container = document.getElementById("root");
   var root = ReactDOMClient.createRoot(container);
-  root.render(/* @__PURE__ */ import_react4.default.createElement(App, null));
+  root.render(/* @__PURE__ */ import_react3.default.createElement(App_default, null));
 })();
 /**
  * @license React
