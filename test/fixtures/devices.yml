@@ -30,7 +30,7 @@ three:
   operating_system_id: 1
   os_major_version: 2
   os_minor_version: 0
-  os_patch_version: 9
+  os_patch_version: 0
   locale_id: 1
   player_id: 3
 
@@ -39,51 +39,41 @@ four:
   model: android-en_us
   operating_system_id: 1
   os_major_version: 2
-  os_minor_version: 0
-  os_patch_version: 10
+  os_minor_version: 1
+  os_patch_version: 0
   locale_id: 1
   player_id: 4
-
 
 five:
   id: 5
   model: android-en_us
   operating_system_id: 1
   os_major_version: 2
-  os_minor_version: 9
+  os_minor_version: 1
   os_patch_version: 0
   locale_id: 1
   player_id: 5
-
 
 six:
   id: 6
   model: android-en_us
   operating_system_id: 1
   os_major_version: 2
-  os_minor_version: 10
+  os_minor_version: 1
   os_patch_version: 0
   locale_id: 1
   player_id: 6
-
 
 seven:
   id: 7
   model: android-en_us
   operating_system_id: 1
-  os_major_version: 10
+  os_major_version: 2
   os_minor_version: 1
-  os_patch_version: 1
+  os_patch_version: 0
   locale_id: 1
   player_id: 7
 
-eight:
-  id: 8
-  model: android-en_us
-  operating_system_id: 1
-  os_major_version: 10
-  os_minor_version: 1
-  os_patch_version: 2
-  locale_id: 1
-  player_id: 8
+
+
 

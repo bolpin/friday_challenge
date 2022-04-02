@@ -1,0 +1,11 @@
+import React from 'react'
+import './NewPlayer.css'
+
+
+const NewPlayer = () => {
+  return <div className='new-player'>
+    <PlayerForm />
+  </div>;
+}
+
+export default NewPlayer

@@ -1,11 +1,25 @@
 import React, { useState } from "react";
-// import DeviceCountResults from "./DeviceCountResults";
-import DeviceCountForm from "./DeviceCountForm";
+import Players from "./Players/Players"
 
-export default function App() {
+const players= [
+    {
+      first_name: "Brian",
+      last_name: "Olpin",
+      birthdate: "1970-03-09",
+    },
+    {
+      first_name: "Ellie",
+      last_name: "Olpin",
+      birthdate: "2003-03-07",
+    }
+  ]
+
+
+export default function App = () => {
   return (
     <>
-      <DeviceCountForm />
+      <h1>App </h1>
+      <Players players={players} />
     </>
   );
 }
