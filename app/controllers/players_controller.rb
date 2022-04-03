@@ -13,16 +13,20 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-    @player.build_device
   end
 
   # GET /players/1/edit
   def edit
   end
 
+  # curl examples: player too young:
+  # curl -X POST localhost:3000/players.json -H "Accept: application/json" -d 'player[first_name]=Earl&player[last_name]=Scruggs&player[birthdate]=2020-01-01&player[gender_id]=2'
+  # player OK:
+  # curl -X POST localhost:3000/players.json -H "Accept: application/json" -d 'player[first_name]=Earl&player[last_name]=Scruggs&player[birthdate]=1980-01-01&player[gender_id]=3'
+  # curl examples: gender doesn't exist:
+  # curl -X POST localhost:3000/players.json -H "Accept: application/json" -d 'player[first_name]=Earl&player[last_name]=Scruggs&player[birthdate]=1980-01-01&player[gender_id]=4'
   # POST /players or /players.json
   def create
-
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -38,7 +42,6 @@ class PlayersController < ApplicationController
 
   # PATCH/PUT /players/1 or /players/1.json
   def update
-
     respond_to do |format|
       if @player.update(player_params)
         format.html { redirect_to player_url(@player), notice: "Player was successfully updated." }
@@ -61,15 +64,13 @@ class PlayersController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
     end
 
+    # Only allow a list of trusted parameters through.
     def player_params
-      params.require(:player).permit(
-        :first_name, :last_name, :birthdate, :gender_id,
-        device_attributes: [ :model, :operating_system_id, :os_version, :locale_id, :_destroy, :id ]
-      )
+      params.require(:player).permit(:first_name, :last_name, :birthdate, :gender_id)
     end
-
 end

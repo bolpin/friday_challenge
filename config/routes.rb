@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :offer_targets
   resources :offers
   resources :players
+  resources :devices
 
   namespace :api do
     namespace :v1 do

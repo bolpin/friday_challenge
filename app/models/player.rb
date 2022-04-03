@@ -1,15 +1,15 @@
 class Player < ApplicationRecord
 
   has_one :device, dependent: :destroy
-  belongs_to :gender #, optional: true    (?)
+  belongs_to :gender
 
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :birthdate, presence: true
 
-  accepts_nested_attributes_for :device,
-    allow_destroy: true,
-    reject_if: proc { |attributes| false }
+  # accepts_nested_attributes_for :device,
+  #   allow_destroy: true,
+  #   reject_if: proc { |attributes| false }
 
   validate :minimum_fourteen_years_old
 

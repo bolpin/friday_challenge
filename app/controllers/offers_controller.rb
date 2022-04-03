@@ -34,6 +34,11 @@ class OffersController < ApplicationController
     end
   end
 
+  # To test with curl:
+  # curl -X PATCH localhost:3000/offers/2.json -H "Accept: application/json" -d 'offer[title]=CurlUpdated222&offer[header]=moneyUpdatedViaCurl'
+  # curl localhost:3000/offers/2.json
+  # curl localhost:3000/offers.json
+  #
   # PATCH/PUT /offers/1 or /offers/1.json
   def update
     respond_to do |format|
