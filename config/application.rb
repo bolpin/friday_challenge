@@ -22,5 +22,15 @@ module ChallengeProject
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.eager_load_paths << Rails.root.join('lib')
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3005'
+
+        resource '*',
+          headers: :any,
+          methods: [:get, :patch, :put, :post, :delete]
+      end
+    end
   end
 end
