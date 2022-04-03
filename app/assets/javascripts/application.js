@@ -1554,7 +1554,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1566,7 +1566,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect(create, deps) {
+          function useEffect2(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -2346,7 +2346,7 @@
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect;
+          exports.useEffect = useEffect2;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -2354,7 +2354,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2850,9 +2850,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React4 = require_react();
+          var React7 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React4.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4248,7 +4248,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React4.Children.forEach(props.children, function(child) {
+                  React7.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11795,7 +11795,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React4.Component().refs;
+          var emptyRefsObject = new React7.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -26250,41 +26250,98 @@
   customElements.define("turbo-cable-stream-source", TurboCableStreamSourceElement);
 
   // app/javascript/components/index.js
-  var import_react3 = __toESM(require_react());
+  var import_react6 = __toESM(require_react());
 
   // app/javascript/components/App.js
-  var import_react2 = __toESM(require_react());
+  var import_react5 = __toESM(require_react());
+
+  // app/javascript/components/Fetch.js
+  var import_react = __toESM(require_react());
+  function useFetch(uri) {
+    const [data, setData] = (0, import_react.useState)();
+    const [error, setError] = (0, import_react.useState)();
+    const [loading, setLoading] = (0, import_react.useState)(true);
+    (0, import_react.useEffect)(() => {
+      if (!uri)
+        return;
+      fetch(uri).then((data2) => data2.json()).then(setData).then(() => setLoading(false)).catch(setError);
+    }, [uri]);
+    return {
+      loading,
+      data,
+      error
+    };
+  }
+  function Fetch({
+    uri,
+    renderSuccess,
+    loadingFallback = /* @__PURE__ */ import_react.default.createElement("p", null, "loading..."),
+    renderError = (error) => /* @__PURE__ */ import_react.default.createElement("pre", null, JSON.stringify(error, null, 2))
+  }) {
+    const { loading, data, error } = useFetch(uri);
+    if (loading)
+      return loadingFallback;
+    if (error)
+      return renderError(error);
+    if (data)
+      return renderSuccess({ data });
+  }
 
   // app/javascript/components/Players/Players.js
-  var import_react = __toESM(require_react());
-  var Players_default = Players = (props) => {
-    return /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Players "), props.players);
-  };
+  var import_react4 = __toESM(require_react());
+
+  // app/javascript/components/Players/Player.js
+  var import_react3 = __toESM(require_react());
+
+  // app/javascript/components/Players/PlayerControls.js
+  var import_react2 = __toESM(require_react());
+  function PlayerControls({ player_id }) {
+    clickHandler = (ev) => {
+      console.log(`${ev.target.dataset.player_id} clicked`);
+    };
+    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("div", null, /* @__PURE__ */ import_react2.default.createElement("button", {
+      data_player_id: player_id,
+      onClick: clickHandler
+    }, "Do something ", player_id)));
+  }
+
+  // app/javascript/components/Players/Player.js
+  function Player({ id, first_name, last_name, birthdate, gender_id }) {
+    clickHandler = () => {
+      console.log("clicked");
+    };
+    return /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement("div", {
+      className: "player"
+    }, /* @__PURE__ */ import_react3.default.createElement("h2", null, first_name, " ", last_name), /* @__PURE__ */ import_react3.default.createElement("div", {
+      className: "player__name"
+    }, "dob: ", birthdate), /* @__PURE__ */ import_react3.default.createElement("div", {
+      className: "player__gender"
+    }, "gender_id: ", gender_id), /* @__PURE__ */ import_react3.default.createElement(PlayerControls, {
+      player_id: id
+    })));
+  }
+
+  // app/javascript/components/Players/Players.js
+  function Players({ data }) {
+    return /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, /* @__PURE__ */ import_react4.default.createElement("h2", null, "Players"), data.map((item) => /* @__PURE__ */ import_react4.default.createElement(Player, {
+      key: item.id,
+      ...item
+    })));
+  }
 
   // app/javascript/components/App.js
-  var players = [
-    {
-      first_name: "Brian",
-      last_name: "Olpin",
-      birthdate: "1970-03-09"
-    },
-    {
-      first_name: "Ellie",
-      last_name: "Olpin",
-      birthdate: "2003-03-07"
-    }
-  ];
   var App_default = App = () => {
-    return /* @__PURE__ */ import_react2.default.createElement(import_react2.default.Fragment, null, /* @__PURE__ */ import_react2.default.createElement("h1", null, "App "), /* @__PURE__ */ import_react2.default.createElement(Players_default, {
-      players
-    }));
+    return /* @__PURE__ */ import_react5.default.createElement(Fetch, {
+      uri: `http://localhost:3000/api/v1/players`,
+      renderSuccess: Players
+    });
   };
 
   // app/javascript/components/index.js
   var ReactDOMClient = __toESM(require_client());
   var container = document.getElementById("root");
   var root = ReactDOMClient.createRoot(container);
-  root.render(/* @__PURE__ */ import_react3.default.createElement(App_default, null));
+  root.render(/* @__PURE__ */ import_react6.default.createElement(App_default, null));
 })();
 /**
  * @license React

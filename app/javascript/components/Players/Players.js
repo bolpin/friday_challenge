@@ -1,13 +1,13 @@
 import React from "react";
+import Player from './Player'
+import './Player.css'
 
-export default Players = (props) => {
+export default function Players({ data }) {
   return (
     <>
-      <h1>Players </h1>
-      <ul>
-        // { props.players.map( player => <li> { player.first_name ({player.birthdate} years old </li> }
-      </ul>
+      <h2>Players</h2>
+      { data.map( (item) => (
+        <Player key={item.id} {...item} />
+      ))}
     </>
-  )
-}
-
+  )};

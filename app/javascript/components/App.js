@@ -1,26 +1,33 @@
 import React, { useState } from "react";
+import Fetch from "./Fetch"
 import Players from "./Players/Players"
-
-const players= [
-    {
-      first_name: "Brian",
-      last_name: "Olpin",
-      birthdate: "1970-03-09",
-    },
-    {
-      first_name: "Ellie",
-      last_name: "Olpin",
-      birthdate: "2003-03-07",
-    }
-  ]
-
+// import { axiosClient } from "./lib"
 
 export default App = () => {
   return (
-    <>
-      <h1>App </h1>
-      // <Players players={players} />
-    </>
+      <Fetch
+        uri={`http://localhost:3000/api/v1/players`}
+        renderSuccess={Players}
+      />
   );
 }
+// [{
+//   "id":1,
+//   "first_name":"Baz",
+//   "last_name":"Who",
+//   "birthdate":"1980-03-25",
+//   "created_at":"2022-04-02T21:45:28.859Z",
+//   "updated_at":"2022-04-02T21:45:28.859Z",
+//   "gender_id":1},
 
+// function Hoopy({ data }) {
+//   return (
+//     <div>
+//       {
+//         data.map( ({id, first_name, last_name, birthdate, created_at, updated_at, gender_id} ) => {
+//           return <p id={id}>{first_name} {last_name}</p> 
+//         })
+//       }
+//     </div>
+//   );
+// }
