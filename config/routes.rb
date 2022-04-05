@@ -19,5 +19,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "components#index"
+  root "players#index"
 end
