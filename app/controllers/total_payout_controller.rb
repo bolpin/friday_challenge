@@ -1,5 +1,6 @@
 class TotalPayoutController < ApplicationController
   def index
+    sleep(1)
     @min_age = params[:min_age] || 1
     @max_age = params[:max_age] || 100
     @payout = [

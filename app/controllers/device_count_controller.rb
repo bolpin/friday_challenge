@@ -4,6 +4,7 @@ class DeviceCountController < ApplicationController
   include Utils
 
   def index
+    sleep(1)
     # render :status => 404
     # return
     @os = params[:os] || 'android'
