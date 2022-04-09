@@ -10,14 +10,5 @@ Rails.application.routes.draw do
   resources :offers
   resources :players
 
-  namespace :api do
-    namespace :v1 do
-     resources :players, only: [:index, :create, :destroy, :update]
-     # resources :devices, only: [:index, :create, :destroy, :update, :count]
-     # resources :offers, only: [:index, :create, :destroy, :update]
-     # resources :offer_targets, only: [:index, :create, :destroy, :update, :total_payout, :players]
-    end
-  end
-
   root "players#index"
 end
