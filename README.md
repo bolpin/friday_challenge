@@ -1,4 +1,5 @@
-# Challenge Project
+# Rails backend
+This is used by the react app as an api for players, devices, etc.  I left some code around for a rails front-end when I thought I wouldn't have time to get the react version done in time.  Run this on port 3000 to ensure compatibility with the javascript client.
 
 ## Setup
 
